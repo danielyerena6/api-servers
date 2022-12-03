@@ -134,3 +134,7 @@ dmypy.json
 #alembic
 alembic/
 alembic.ini
+
+#pipfile
+Pipfile
+Pipfile.lock
