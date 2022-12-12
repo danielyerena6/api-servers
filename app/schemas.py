@@ -4,8 +4,7 @@ from pydantic import BaseModel
 
 class Servers(BaseModel):
     ip: str
-    hostname: int
-    services: dict
+    hostname: str
 
     class Config:
         orm_mode = True

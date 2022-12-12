@@ -11,9 +11,26 @@ class Servers(Base):
     id = Column(Integer(), index=True, primary_key=True)
     ip = Column(String(15))
     hostname = Column(String())
-    services = Column(JSON)
 
-    def __init__(self, ip, hostname, services):
+    def __init__(self, ip, hostname):
         self.ip = ip
         self.hostname = hostname
-        self.services = services
+
+
+class Services(Base):
+    __tablename__ = "services"
+    id = Column(Integer(), index=True, primary_key=True)
+    id_server = Column(ForeignKey("servers.id"))
+    _type = Column(String())
+    vendor = Column(String())
+    client = Column(String())
+    port = Column(Integer())
+    url = Column(String())
+
+    def __int__(self, _type, vendor, client, port, url):
+        self._type = _type
+        self.vendor = vendor
+        self.client = client
+        self.port = port
+        self.url = url
+
